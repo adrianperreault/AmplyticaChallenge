@@ -10,8 +10,8 @@ Requirements: - This program requires the Flask module: https://pypi.python.org/
               - This script requires Python 3.5 or later.
 """
 from flask import Flask
+from flask import render_template
 from flask_mail import Mail
-from flask_mail import Message
 
 from ServerApp.Config.mailServerConfig import mailConfig
 
@@ -26,15 +26,14 @@ mail = Mail(app)
 # This is the entry point route for the web server. The annotation specifies the routing path used when the user
 # accesses the site. Ex. User running locally enters http://localhost:5000/ and sees "Hello Amplytica" in their browser.
 @app.route("/")
-
 def index():
-    msg = Message("Test Email!",
-                  sender="adrian-perreault@mytru.ca",
-                  recipients=["adrian-perreault@mytru.ca"])
-    msg.body = "Testing"
-    mail.send(msg)
+    return render_template('index.html')
 
-    return "Hello Amplytica!"
+
+# Route for the Contact Us web form page.
+@app.route("/contact")
+def contactUs():
+    return render_template('contact_page.html')
 
 
 if __name__ == "__main__":
