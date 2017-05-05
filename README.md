@@ -9,11 +9,13 @@ This is a Python web application utilizing Flask for forwarding web form data to
 ### 1. Clone the project:
 ```
 git clone https://github.com/aperreaultTRU/AmplyticaChallenge.git
+```
 
 ### 2. Install dependencies (Optional if they are installed already): 
 ```
 pip install Flask
 pip install Flask-Mail
+pip install Flask-WTF
 ```
 
 ### 3. Run the server:
@@ -21,4 +23,5 @@ pip install Flask-Mail
 cd AmplyticaChallenge/ServerApp
 python server.py
 ```
+
 ### 4. Open http://localhost:5000

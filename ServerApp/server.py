@@ -9,13 +9,16 @@ Requirements: - This program requires the Flask module: https://pypi.python.org/
               - This program requires the Flask-Mail module: https://pypi.python.org/pypi/Flask-Mail
               - This script requires Python 3.5 or later.
 """
-from flask import Flask
-from flask import render_template
+from flask import Flask, render_template, request, flash
 from flask_mail import Mail
 
 from ServerApp.Config.mailServerConfig import mailConfig
+from ServerApp.contactForm import ContactUsForm
 
 app = Flask(__name__)
+
+# A secret key is required for Flask-WTF's CSRF protection.
+app.secret_key = 'development key'
 
 # We configure Flask-Mail mail server settings with the settings saved in ServerApp/Config/mailServerConfig
 app.config.update(mailConfig)
@@ -31,10 +34,19 @@ def index():
 
 
 # Route for the Contact Us web form page.
-@app.route("/contact")
+@app.route("/contact", methods=['GET', 'POST'])
 def contactUs():
-    return render_template('contact_page.html')
+    form = ContactUsForm()
+
+    if request.method == 'POST':
+        if form.validate() == False:
+            flash('Please enter all the required fields.')
+            return render_template('contact_page.html', form=form)
+        else:
+            return render_template('message_sent_page.html')
+    elif request.method == 'GET':
+        return render_template('contact_page.html', form=form)
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)
