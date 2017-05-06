@@ -28,6 +28,7 @@ class ContactUsForm(FlaskForm):
                                   validators.Email("Please enter your email address.")],
                         render_kw={"placeholder": "Email",
                                    "class": "form-control",
+                                   "type": "email",
                                    "required": "required"}
                         )
 
