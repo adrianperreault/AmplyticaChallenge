@@ -1,3 +1,4 @@
+![ScreenShots](https://gifyu.com/images/ezgif-3-4a1a1325c6.gif)
 # Amplytica Challenge 
 
 
