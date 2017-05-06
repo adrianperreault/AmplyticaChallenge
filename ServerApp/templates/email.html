@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Us</title>
+</head>
+
+<body style="margin: 0px;">
+
+<!-- Heading Bar -->
+<div style='
+    top:-20px;
+    padding: 0px;
+    margin: 0px;
+    display:block;
+    position: relative;
+    min-height: 64px;
+    margin-bottom: 10px;
+    background-color: #2196f3;
+    border-bottom-left-radius:3px;
+    border-bottom-right-radius:3px;
+    border-bottom-color:rgb(102, 102, 102);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.3);'>
+
+    <!--Link to Amlytica-->
+    <div style="display:flex; align-items: center">
+        <a style="color: #ffffff;text-decoration:none;"
+           href="http://www.amplytica.io/;">
+            <h3 style="color: #ffffff;
+                     font-family: 'Roboto';
+                     padding-top:10px;
+                     padding-left:10px;
+">
+                Amplytica</h3>
+        </a>
+    </div>
+
+</div>
+
+<!-- Email Card -->
+<div class="card" style='
+    width: 95%;
+    margin-left: 10px;
+    font-family: "Roboto";
+    box-sizing: border-box;
+    font-size: 13px;
+    line-height: 1.846;
+    color: #666666;
+    border: #ebebeb;
+    border-radius: 5px;
+    border-width: 1px;
+    border-style: solid;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    '>
+
+    <ul>
+        <!-- Name -->
+        <div class="list-group-item"
+             style='font-family: "Roboto","Helvetica Neue",Helvetica,Arial,sans-serif;
+             font-size: 13px;
+             line-height: 50%;
+             color: #666666;'>
+            <h5>Name: {{name}} </h5>
+        </div>
+
+        <!-- email -->
+        <div class="list-group-item"
+             style='font-family: "Roboto","Helvetica Neue",Helvetica,Arial,sans-serif;
+             font-size: 13px;
+               line-height: 50%;
+             color: #666666;'>
+            <h5>Email: {{email}} </h5>
+        </div>
+
+        <!-- Phone -->
+        <div class="list-group-item"
+             style='font-family: "Roboto","Helvetica Neue",Helvetica,Arial,sans-serif;
+             font-size: 13px;
+             line-height: 50%;
+             color: #666666;'>
+            <h5>Phone: {{phone}} </h5>
+        </div>
+        <!-- Subject -->
+        <div class="list-group-item"
+             style='font-family: "Roboto","Helvetica Neue",Helvetica,Arial,sans-serif;
+             font-size: 13px;
+               line-height: 50%;
+             color: #666666;'>
+
+            <h5>Subject: {{subject}} </h5>
+        </div>
+
+        <!-- Message -->
+        <div>
+            <h5>Message:</h5>
+            <p style='font-family: "Roboto","Helvetica Neue",Helvetica,Arial,sans-serif;
+             font-size: 13px;
+             color: #666666;'
+            >{{message}}</p>
+        </div>
+    </ul>
+</div>
+</body>
+</html>
