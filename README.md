@@ -17,7 +17,7 @@ pip install Flask
 pip install Flask-Mail
 pip install Flask-WTF
 ```
-### 3. Configure email recipients list
+### 3. Configure email recipients list:
 Open **ServerApp/config/mailServerConfig.py** and add the address/es where you'd like the form data sent.  
 
 ```
