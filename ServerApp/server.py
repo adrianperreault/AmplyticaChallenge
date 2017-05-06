@@ -6,7 +6,6 @@ Description: A simple web server utilizing the Python microframework Flask to ma
              collecting end-user feedback from a web form and forwarding it to a specified email address. 
 
 Requirements: - This program requires the Flask module: https://pypi.python.org/pypi/Flask/0.12
-
               - This program requires the Flask-Mail module: https://pypi.python.org/pypi/Flask-Mail
               - This script requires Python 3.5 or later.
 """
