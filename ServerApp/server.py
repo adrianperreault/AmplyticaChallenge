@@ -15,14 +15,8 @@ Requirements: - This program requires the Flask module: https://pypi.python.org/
 from flask import Flask, render_template, request
 from flask_mail import Mail, Message
 
-from ServerApp.config.mailServerConfig import mailConfig
+from ServerApp.config.mailServerConfig import mailConfig, EMAIL_RECIPIENTS
 from ServerApp.contactForm import ContactUsForm
-
-# Constants:
-#   - EMAIL_RECIPIENTS: A list of email address strings for where the form data should be sent.
-#   - EMAIL_SENDER:     The email address sender
-EMAIL_RECIPIENTS = ["* CHANGE ME *"]
-EMAIL_SENDER = "* CHANGE ME *"
 
 app = Flask(__name__)
 
@@ -53,17 +47,17 @@ def contactUs():
         return render_template('contact_page.html', form=form)
 
 
-# This function handles a form submission by extracting the form data and sending an email.
+# This method handles a form submission by extracting the form data and sending an email.
 def handleFormSubmitted(form):
     data = getDataFromForm(form)
     print(data)
     sendEmail(data)
 
 
-# This function sends an email containing the form data to the specified email address.
+# This method sends an email containing the form data to the specified email address/es.
 def sendEmail(data):
     msg = Message(data['subject'],
-                  sender=EMAIL_SENDER,
+                  sender=data['email'],
                   recipients=EMAIL_RECIPIENTS)
     msg.html = render_template('email.html',
                                name=data['name'],
@@ -74,7 +68,7 @@ def sendEmail(data):
     mail.send(msg)
 
 
-# This function returns a dictionary with data extracted from the submitted form.
+# This method returns a dictionary with data extracted from the submitted form.
 def getDataFromForm(form):
     data = {
         'name': form.name._value(),
