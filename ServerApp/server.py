@@ -32,7 +32,12 @@ mail = Mail(app)
 # accesses the site. Ex. User running locally enters http://localhost:5000/ and sees "Hello Amplytica" in their browser.
 @app.route("/")
 def index():
-    return render_template('index.html')
+    hasSetRecipient = checkIfSetRecipient()
+    hasSetMailConfig = checkIfSetMailConfig()
+
+    return render_template('index.html',
+                           hasSetRecipient=hasSetRecipient,
+                           hasSetMailConfig=hasSetMailConfig)
 
 
 # Route for the Contact Us web form page.
@@ -77,6 +82,17 @@ def getDataFromForm(form):
         'message': form.message._value()
     }
     return data
+
+
+# This method checks to see if the email recipient list in config/mailServerConfig.py has been set
+def checkIfSetRecipient():
+    return True if (EMAIL_RECIPIENTS != ["** CHANGE ME **"]) else False
+
+# This method checks to see if the email config details in config/mailServerConfig.py has been set
+def checkIfSetMailConfig():
+    return True if (
+        mailConfig['MAIL_USERNAME'] != '** CHANGE ME **' and
+        mailConfig['MAIL_PASSWORD'] != '** CHANGE ME **') else False
 
 
 if __name__ == "__main__":

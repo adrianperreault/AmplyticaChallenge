@@ -21,9 +21,6 @@ mailConfig = dict(
     MAIL_PORT=465,
     MAIL_USE_TLS=False,
     MAIL_USE_SSL=True,
-    MAIL_USERNAME = '** CHANGE ME **',
-    MAIL_PASSWORD = '** CHANGE ME **'
+    MAIL_USERNAME='** CHANGE ME **',
+    MAIL_PASSWORD='** CHANGE ME **'
 )
-
-
-
